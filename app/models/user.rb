@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :posts, dependent: :destroy
+
   attr_accessor :remember_token
   
 	before_save { email.downcase! }
@@ -36,5 +38,10 @@ class User < ActiveRecord::Base
   # Forgets a user.
   def forget
     update_attribute(:remember_digest, nil)
+  end
+
+  # Defines a proto-feed.
+  def feed
+    Post.where("user_id = ?", id)
   end
 end
