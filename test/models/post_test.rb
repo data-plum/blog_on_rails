@@ -4,7 +4,6 @@ class PostTest < ActiveSupport::TestCase
 
   def setup
     @user = users(:michael)
-    # This code is not idiomatically correct.
     @post = @user.posts.build(content: "Lorem ipsum")
   end
 
