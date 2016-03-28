@@ -15,6 +15,7 @@ $gray-medium-light: #eaeaea;
 
 body {
   padding-top: 60px;
+  background-color: #fdfbed;  
 }
 
 section {
@@ -278,7 +279,7 @@ span.picture {
 
 .jumbotron {
   margin-top: 60px;
-  background: url('cryberry.jpg') center center no-repeat;
+  background: url('http://img12.deviantart.net/c6b7/i/2014/163/3/6/cryberry_wallpaper_by_autumnpeace100-d7m2btv.jpg') center center no-repeat;
   height: 100%;
   width: 100%;
 }
@@ -291,10 +292,6 @@ span.picture {
 .btn-danger {
   background-color: #a65959;
   border-color: #808080;
-}
-
-body {
-  background-color: #fdfbed;  
 }
 
 textarea:focus,
