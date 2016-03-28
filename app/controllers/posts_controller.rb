@@ -1,6 +1,11 @@
 class PostsController < ApplicationController
-	before_action :logged_in_user, only: %i[create destroy]
+	before_action :logged_in_user, only: %i[create destroy show]
   before_action :correct_user,   only: :destroy
+
+  def index
+    @q = Post.ransack(params[:q])
+    @posts = @q.result(distinct: true)
+  end
 
   def show
     @post = Post.find(params[:id])

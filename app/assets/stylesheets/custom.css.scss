@@ -288,3 +288,51 @@ span.picture {
     border: 0;
   }
 }
+
+.post-content {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.jumbotron {
+  margin-top: 60px;
+  background: url('cryberry.jpg') center center no-repeat;
+  height: 100%;
+  width: 100%;
+}
+
+.navbar-default {
+  background-color: #230404;
+  border-color: #808080;
+}
+
+.btn-danger {
+  background-color: #a65959;
+  border-color: #808080;
+}
+
+body {
+  background-color: #fdfbed;  
+}
+
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+
+.uneditable-input:focus {   
+  border-color: #ffb3b3;
+  box-shadow: 0 1px 1px #ffcccc inset, 0 0 8px #ff9999;
+  outline: 0 none;
+}
