@@ -4,13 +4,14 @@ class UsersController < ApplicationController
   before_action :admin_user,     only: :destroy
 
   def index
-    @users = User.paginate(page: params[:page])
+    # @users = User.paginate(page: params[:page])
     @q = User.ransack(params[:q])
-    @us = @q.result(distinct: true)
+    @users = @q.result(distinct: true)
   end
 
   def show
     @user = User.find(params[:id])
+    @post = current_user.posts.build
     @posts = @user.posts.paginate(page: params[:page])
   end
 

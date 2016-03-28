@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   before_action :correct_user,   only: :destroy
 
   def index
+    # @posts = Post.paginate(page: params[:page])
     @q = Post.ransack(params[:q])
     @posts = @q.result(distinct: true)
   end
@@ -18,8 +19,7 @@ class PostsController < ApplicationController
       	flash[:success] = "Post created!"
       	redirect_to root_url
     	else
-        @feed_items = []
-      	render 'static_pages/home'
+      	redirect_to :back
     	end
 	end
 
