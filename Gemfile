@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails',        '4.2.2'
 gem 'pg'
+gem 'devise'
 gem 'ransack'
 gem 'bcrypt',       '3.1.7'
 gem 'faker',        '1.4.2'
