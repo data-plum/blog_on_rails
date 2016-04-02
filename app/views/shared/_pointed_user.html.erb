@@ -1,11 +1,11 @@
 <div class="well">
 	<div class="text-center">
-		<%= link_to gravatar_for(current_user, size: 50), current_user %>
-		<h3><%= link_to current_user.name, current_user %></h3>
+		<%= link_to gravatar_for(@user, size: 50), @user %>
+		<h3><%= link_to @user.name, @user %></h3>
 		<ul class="list-group text-left">
 			<li class="list-group-item">
 				<span class="text-left">Posts</span>
-				<span class='badge'><%= current_user.posts.count %></span>
+				<span class='badge'><%= @user.posts.count %></span>
 			</li>
 			<%= render 'shared/stats' %>
 		</ul>

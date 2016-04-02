@@ -1,7 +1,7 @@
-<%= form_for [@post, @comment] do |f| %>
+<%= form_for [@post, @comment], html: { class: 'form-inline special-form' } do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <div class="field">
-    <%= f.text_area :content, placeholder: "Comment me..." %>
+  <div class="form-group smaller">
+    <%= f.text_field :content, placeholder: "Type your text here...", class: 'form-control' %>
   </div>
-  <%= f.submit "comment", class: "btn btn-danger" %>
+  <%= f.submit "Comment", class: "btn btn-primary" %>
 <% end %>

@@ -4,11 +4,12 @@ class PostsController < ApplicationController
 
   def index
     @q = Post.ransack(params[:q])
-    @posts = @q.result(distinct: true)
+    @posts = @q.result(distinct: true).paginate(page: params[:page])
   end
 
   def show
     @post = Post.find(params[:id])
+    @user = User.find(@post.user_id)
     @comment = Comment.new(content: '', user_id: current_user.id, post_id: @post.id) 
   end
 
@@ -18,7 +19,7 @@ class PostsController < ApplicationController
       	flash[:success] = "Post created!"
       	redirect_to root_url
     	else
-      	redirect_to :back
+      	redirect_to current_user
     	end
 	end
 

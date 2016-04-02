@@ -1,9 +1,15 @@
 <% unless current_user?(@user) %>
   <div id="follow_form">
   <% if current_user.following?(@user) %>
-    <%= render 'unfollow' %>
+    <%= form_for current_user.active_relationships.find_by(followed_id: @user.id),
+             html: { method: :delete, class: 'form margin-div' } do |f| %>
+		  <%= f.submit "Unfollow", class: "btn btn-danger" %>
+		<% end %>
   <% else %>
-    <%= render 'follow' %>
+    <%= form_for current_user.active_relationships.build, html: { class: 'form margin-div' } do |f| %>
+	  	<div><%= hidden_field_tag :followed_id, @user.id %></div>
+	  	<%= f.submit "Follow", class: "btn btn-primary" %>
+		<% end %>
   <% end %>
   </div>
 <% end %>

@@ -1,11 +1,19 @@
-<li id="comment-<%= comment.id %>">
-  <%= link_to gravatar_for(comment.user, size: 50), comment.user %>
-  <span class="user"><%= link_to comment.user.name, comment.user %></span>
-  <span class="content"><%= comment.content %></span>
-  <span class="timestamp">
-    Commented <%= time_ago_in_words(comment.created_at) %> ago.
-	<% if current_user?(comment.user) %>
-	      <%= link_to "delete", post_comment_path(@post, comment), method: :delete, data: { confirm: "You sure?" } %>
-	    <% end %>
-  </span>
-</li>
+ <li id="comment-<%= comment.id %>" class="list-group-item">
+ 	<div class="row">
+ 		<div class="col-md-2">
+ 			<%= link_to gravatar_for(comment.user, size: 50), comment.user %>
+ 		</div>
+ 		<div class="col-md-10">
+	 		<div class="meta">
+	 			<span class="user"><%= link_to comment.user.name, comment.user %></span>
+	 			<span class="timestamp"><%= time_ago_in_words(comment.created_at) %> ago</span>
+	 		</div>
+	 		<div class="content"><%= comment.content %></div>
+	 		<div class="controls">
+	 			<% if current_user?(comment.user) %>
+		 			<%= link_to "<span class='glyphicon glyphicon-remove' aria-hidden=''></span> Delete".html_safe, post_comment_path(@post, comment), method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-default' %>
+		 		<% end %>
+	 		</div>
+ 		</div>
+ 	</div>
+ </li>

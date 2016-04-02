@@ -1,0 +1,55 @@
+.special-form {
+	margin-bottom: 20px;
+
+	.form-group {
+		width: 85%;
+
+		&.smaller {
+			width: 80%;
+		}
+
+		input {
+			width: 100%;
+		}
+	}
+
+	input[type='submit'] {
+		margin-left: 5px;
+	}
+}
+
+.post {
+	margin-bottom: 20px;
+}
+
+.posts {
+
+	li {
+
+		img {
+			width: 100%;
+			border-radius: 5px;
+		}
+
+		.meta {
+			.user a {
+				color: #000;
+				font-weight: 600;
+				text-decoration: none;
+
+				&:hover {
+					color: #d9534f;
+					text-decoration: underline;
+				}
+			}
+
+			.timestamp, .timestamp a {
+				color: grey;
+			}
+		}
+
+		.controls {
+			margin-top: 10px;
+		}
+	}
+}

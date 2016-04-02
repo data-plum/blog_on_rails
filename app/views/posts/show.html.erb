@@ -1,24 +1,23 @@
 <% provide(:title, 'post') %>
 
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-        <%= render 'shared/user_info' %>
-    </section>
-    <section class="stats">
-      <%= render 'shared/stats' %>
-    </section>
-  </aside>
-  <div class="col-md-8">
-    <div class="post-content"><p> <%= @post.content %></p></div>
-      <section class="post_form">
-        <%= render 'shared/comment_form' %>
+<div class="post">
+  <div class="row">
+    <aside class="col-md-3">
+      <section class="user_info">
+        <%= render 'shared/pointed_user' %>
       </section>
-      <% if @post.comments.any? %>
-        <h3>Comments (<%= @post.comments.count %>)</h3>
-        <ol class="posts">
-          <%= render @post.comments %>
-        </ol>
-      <% end %>
+    </aside>
+    <div class="col-md-6">
+      <div class="post-content">
+        <h2><%= @post.content %></h2>
+      </div>
+      <p>Comments (<%= @post.comments.count %>)</p>
+      <%= render 'shared/comment_form' %>
+      <ul class="posts list-group">
+        <%= render @post.comments %>
+      </ul>
+    </div>
   </div>
 </div>
+
+

@@ -1,0 +1,27 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.users {
+	li {
+		
+		.row {
+			display: flex !important;
+			align-items: center !important;
+		}
+
+		.col-md-2 {
+			width: 12%;
+			text-align: right;
+			float: right;
+		}
+
+		.col-md-9 {
+			width: 72%;
+		}
+
+		img {
+			border-radius: 5px;
+		}
+	}
+}
