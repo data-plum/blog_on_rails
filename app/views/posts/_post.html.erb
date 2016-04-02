@@ -1,14 +1,24 @@
-<li id="<%= post.id %>">
-	<%= link_to gravatar_for(post.user, size: 50), post.user %>
-	<span class="user"><%= link_to post.user.name, post.user %></span>
-	<span class="content"><%= post.content %></span>
-	<span class="timestamp">
-	    Posted <%= time_ago_in_words(post.created_at) %> ago.
-	    <% if current_user?(post.user) %>
-	      <%= link_to "delete", post, method: :delete, data: { confirm: "You sure?" } %>
-	    <% end %>
-	    <% if logged_in? %>
-	      <%= link_to "comment", post %>
-	    <% end %>
-	</span>
+<li id="<%= post.id %>" class="list-group-item">
+	<div class="row">
+		<div class="col-md-2">
+			<%= link_to gravatar_for(post.user, size: 50), post.user %>
+		</div>
+		<div class="col-md-10">
+			<div class="meta">
+				<span class="user"><%= link_to post.user.name, post.user %></span>
+				<span class="timestamp">
+					<%= link_to "#{time_ago_in_words(post.created_at)} ago", post %>
+				</span>
+			</div>
+			<div class="content"><%= post.content %></div>
+			<div class="controls">
+				<% if logged_in? %>
+		      <%= link_to "<span class='glyphicon glyphicon-share-alt' aria-hidden=''></span> Comment".html_safe, post, class: 'btn btn-sm btn-default' %>
+		    <% end %>
+				<% if current_user?(post.user) %>
+		      <%= link_to "<span class='glyphicon glyphicon-remove' aria-hidden=''></span> Delete".html_safe, post, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-sm btn-default' %>
+		    <% end %>
+			</div>
+		</div>
+	</div>
 </li>

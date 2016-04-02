@@ -1,23 +1,17 @@
 <% provide(:title, @title) %>
 <div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <%= gravatar_for @user %>
-      <h1><%= @user.name %></h1>
-      <span><%= link_to "view my profile", @user %></span>
-      <span><b>Posts:</b> <%= @user.posts.count %></span>
-    </section>
-    <section class="stats">
-      <%= render 'shared/stats' %>
-    </section>
+  <aside class="col-md-3">
+      <%= render 'shared/pointed_user' %>
   </aside>
-  <div class="col-md-8">
+  <div class="col-md-6">
     <h3><%= @title %></h3>
     <% if @users.any? %>
-      <ul class="users follow">
+      <ul class="users follow list-group">
         <%= render @users %>
       </ul>
-      <%= will_paginate %>
+      <div class="text-center">
+        <%= will_paginate %>
+      </div>
     <% end %>
   </div>
 </div>

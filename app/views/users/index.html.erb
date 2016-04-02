@@ -1,16 +1,25 @@
 <% provide(:title, 'All users') %>
-<h1>All users</h1>
 
-<%= search_form_for @q do |f| %>
-  <%= f.label :name_cont %>
-  <%= f.search_field :name_cont %>
-  <%= f.submit %>
-<% end %>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<h2>All Users</h2>
 
+		<%= search_form_for @q, html: { class: 'form-inline special-form' } do |f| %>
+			<div class="form-group smaller">
+				<%= f.search_field :name_cont, class: 'form-control input-lg', placeholder: 'Search users...' %>
+			</div>
+		  <%= f.submit "Search", class: "btn btn-primary btn-lg" %>
+		<% end %>
 
-
-<ul class="users">
-	<% if :name_cont%>
-    	<%= render @users %>
-    <% end %>
-</ul>
+		<ul class="users list-group">
+			<% if @users.any? %>
+		  	<%= render @users %>
+		  	<div class="text-center">
+		  		<%= will_paginate @users  %>
+		  	</div>
+		  <% else %>
+		  	<p>No users found. Please try again.</p>
+		  <% end %>
+		</ul>
+	</div>
+</div>

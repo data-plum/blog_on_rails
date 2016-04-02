@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
 		@comment = @post.comments.build(comment_params)
     	@comment.user_id = current_user.id
     	if @comment.save
-      		flash[:success] = "comment created!"
+      		flash[:success] = "Comment created"
       	end
       	redirect_to post_path(@post)
 	end		

@@ -1,12 +1,23 @@
-<%= search_form_for @q do |f| %>
-  <%= f.label :content_cont %>
-  <%= f.search_field :content_cont %>
-  <%= f.submit %>
-<% end %>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<h2>All Posts</h2>
+		<%= search_form_for @q, html: { class: 'form-inline special-form' } do |f| %>
+			<div class="form-group smaller">
+				<%= f.search_field :content_cont, class: 'form-control input-lg', placeholder: 'Search posts...'%>
+			</div>
+		  <%= f.submit "Search", class: "btn btn-primary btn-lg" %>
+		<% end %>
 
+		<ul class="posts list-group">
+		  <% if @posts.any? %>
+		    <%= render @posts %>
+		    <div class="text-center">
+		  		<%= will_paginate @posts %>
+		  	</div>
+		  <% else %>
+		  	<p>No posts found. Please search for something else.</p>
+		  <% end %>
+		</ul>
+	</div>
+</div>
 
-<ul class="users">
-  <% if :content_cont %>
-    <%= render @posts %>
-  <% end %>
-</ul>

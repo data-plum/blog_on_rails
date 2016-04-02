@@ -1,39 +1,24 @@
-# default: &default
-#   adapter: sqlite3
-#   pool: 5
-#   timeout: 5000
+default: &default
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
 
 development:
-  adapter: postgresql
-  encoding: utf8
-  database: blog_db
-  pool: 5
-  timeout: 5000
+  <<: *default
+  database: blog_db_dev
   host: localhost
   username: ivanna
   password: 1q2w3e
-  # <<: *default
-  # database: db/development.sqlite3
 
 test:
-  adapter: postgresql
-  encoding: utf8
-  database: blog_db
-  pool: 5
-  timeout: 5000
+  <<: *default
+  database: blog_db_test
   host: localhost
   username: ivanna
   password: 1q2w3e
-  # <<: *default
-  # database: db/test.sqlite3
 
 production:
-  adapter: postgresql
-  encoding: utf8
-  database: blog_db
-  pool: 5
-  timeout: 5000
+  <<: *default
+  database: blog_db_prod
   username: ivanna
   password: 1q2w3e
-  # <<: *default
-  # database: db/production.sqlite3
