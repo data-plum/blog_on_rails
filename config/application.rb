@@ -15,5 +15,17 @@ module SampleApp
 
     # Include the authenticity token in remote forms.
     config.action_view.embed_authenticity_token_in_remote_forms = true
+
+    # Generate starter files for application’s test suite
+    config.generators do |g|
+  		g.test_framework :rspec,
+		    fixtures: true,
+		    view_specs: true,
+		    helper_specs: true,
+		    routing_specs: true,
+		    controller_specs: true,
+		    request_specs: true
+  		g.fixture_replacement :factory_girl, dir: "spec/factories"
+	end
   end
 end
