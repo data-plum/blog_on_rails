@@ -5,7 +5,6 @@ describe Post do
 		it { should validate_presence_of(:user_id) }
 
 		it { should validate_presence_of(:content) }
-		it { should validate_length_of(:content).is_at_most(140) }
 		
 		it "applies a default scope to descending order posts" do
     		expect(Post.all.to_sql).to eq Post.all.order(created_at: :desc).to_sql

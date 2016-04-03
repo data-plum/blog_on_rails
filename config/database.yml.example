@@ -1,0 +1,24 @@
+default: &default
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: blog_db_dev
+  host: localhost
+  username: postgres
+  password:
+
+test:
+  <<: *default
+  database: blog_db_test
+  host: localhost
+  username: postgres
+  password:
+
+production:
+  <<: *default
+  database: blog_db_prod
+  username: postgres
+  password:

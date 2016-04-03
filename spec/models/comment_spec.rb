@@ -6,7 +6,6 @@ describe Comment do
 		it { should validate_presence_of(:post_id) }
 
 		it { should validate_presence_of(:content) }
-		it { should validate_length_of(:content).is_at_most(140) }
 	end
 
 	context "associations" do

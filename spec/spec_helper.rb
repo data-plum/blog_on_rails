@@ -12,4 +12,12 @@ RSpec.configure do |config|
   config.mock_with :rspec do |mocks|
     mocks.verify_partial_doubles = true
   end
+
+  config.after :all do
+  	ActiveRecord::Base.subclasses.each(&:delete_all)
+	end
+
+	# def test_sign_in(user)
+ #    controller.log_in(user)
+ #  end
 end
