@@ -1,17 +1,12 @@
 require 'rails_helper'
 
 describe UsersController do
-
-              
+        
   describe "GET #index" do
-    it "populates an array of users"
-    it "renders the :index view"
+    it { should use_before_action(:logged_in_user) }
   end
   
   describe "GET #show" do
-    it "assigns the requested user to @user"
-    it "assigns the current user posts to @posts"
-    it "renders the :show template"
   end
   
   describe "GET #new" do
@@ -39,24 +34,30 @@ describe UsersController do
   end
 
   describe "GET #edit" do
-    it "assigns a existed user from db to @user"
-    it "renders the :edit template"
+    it { should use_before_action(:logged_in_user) }
+    it { should use_before_action(:correct_user) }
   end
 
   describe "POST #update" do
+    it { should use_before_action(:logged_in_user) }
+    it { should use_before_action(:correct_user) }
+    
     context "with valid attributes" do
-      it "saves the user changes in the database"
-      it "redirects to the @user page"
     end
     
     context "with invalid attributes" do
-      it "does not save the user changes in the database"
-      it "re-renders the :edit template"
     end
   end
 
   describe "DELETE #destroy" do
-    it "find the user in the database"
-    it "redirects to users page"
-    end
+    it { should use_before_action(:admin_user) }
+  end
+
+  describe "GET #following" do
+    it { should use_before_action(:logged_in_user) }
+  end
+
+  describe "GET #followers" do
+    it { should use_before_action(:logged_in_user) }
+  end
 end
