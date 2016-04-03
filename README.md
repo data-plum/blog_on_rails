@@ -16,7 +16,7 @@ Then
     $ rails server
 
 You can sign in as admin user:
-email - example@railstutorial.org
-password-  foobar.
+email - example@railstutorial.org,
+password - foobar.
 
 Admin can delete other users. 
